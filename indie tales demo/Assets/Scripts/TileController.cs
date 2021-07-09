@@ -30,7 +30,18 @@ public class TileController : MonoBehaviour {
     public void AttackAtPosition(Vector3 position) {
         Vector3Int currentCell = wallTileMap.WorldToCell(position);
         if (currentCell != null) {
-            wallTileMap.SetTile(currentCell, null);
+            if (IsTiledestroyable(wallTileMap.GetTile(currentCell))){
+                wallTileMap.SetTile(currentCell, null);
+            }
+        }
+    }
+
+    private bool IsTiledestroyable(TileBase tile) {
+        if (tile.name.Contains("Walls1")) {
+            return true;
+        }
+        else {
+            return false; 
         }
     }
 }

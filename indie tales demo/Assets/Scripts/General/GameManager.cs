@@ -14,9 +14,7 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager Instance { get { return _instance; } }
 
-
 	void Awake() {
-
 		//If a Game Manager exists and this isn't it...
 		if (_instance != null && _instance != this) {
 			//...destroy this and exit. There can only be one Game Manager
@@ -56,9 +54,8 @@ public class GameManager : MonoBehaviour {
 		//If there is no current Game Manager, exit
 		if (_instance == null)
 			return;
-
-		//Invoke the RestartScene() method after a delay
-		UIManager.ShowGameOverText();
+		
+		//UIManager.ShowGameOverText();
 		_instance.Invoke("RestartScene", _instance.deathSequenceDuration);
 	}
 
@@ -67,36 +64,17 @@ public class GameManager : MonoBehaviour {
 		if (_instance == null)
 			return;
 
-		UIManager.ShowWinText();
+		//UIManager.ShowWinText();
 		_instance.Invoke("BackToMainMenu", _instance.deathSequenceDuration);
-
-		//AudioManager.PlayWonAudio();
-	}
-
-	public static void Level1Finished() {
-		//If there is no current Game Manager, exit
-		if (_instance == null)
-			return;		
-
-		UIManager.ShowLevel1FinishText();
-		_instance.Invoke("GoToCutScene_lvl1_to_lvl2", _instance.deathSequenceDuration);		
 	}
 
 	void RestartScene() {
-		//Play the scene restart audio
-		//AudioManager.PlaySceneRestartAudio();
-
 		//Reload the current scene
 		Loader.LoadCurrentScene();
-		UIManager.HideAllTexts();
+		//UIManager.HideAllTexts();
 	}
 	void BackToMainMenu() {
-		UIManager.HideAllTexts();
+		//UIManager.HideAllTexts();
 		Loader.Load(Loader.Scene.MainMenu);
-	}
-
-	void GoToCutScene_lvl1_to_lvl2() {		
-		UIManager.HideAllTexts();
-		Loader.Load(Loader.Scene.Cutscene_lvl1_to_lvl2);
 	}
 }

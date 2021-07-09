@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour {
         if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f)) {
             lookDirection.Set(move.x, move.y);
             lookDirection.Normalize();
+            SetAtackPoint();
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && attackAllowed) {
@@ -67,12 +68,13 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Attack() {
-        
-        
-        
         Collider2D[] hitWalls = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach (Collider2D wall in hitWalls) {
             wall.GetComponentInParent<TileController>().AttackAtPosition(attackPoint.position);
         }
+    }
+
+    private void SetAtackPoint() {
+        attackPoint.localPosition = lookDirection / 2;
     }
 }

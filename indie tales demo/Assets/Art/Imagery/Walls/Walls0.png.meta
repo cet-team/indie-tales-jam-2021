@@ -256,7 +256,7 @@ TextureImporter:
       name: Walls0_5
       rect:
         serializedVersion: 2
-        x: 16
+        x: 32
         y: 32
         width: 16
         height: 16
@@ -277,7 +277,7 @@ TextureImporter:
       name: Walls0_6
       rect:
         serializedVersion: 2
-        x: 32
+        x: 48
         y: 32
         width: 16
         height: 16
@@ -298,8 +298,8 @@ TextureImporter:
       name: Walls0_7
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
+        x: 0
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -319,7 +319,7 @@ TextureImporter:
       name: Walls0_8
       rect:
         serializedVersion: 2
-        x: 0
+        x: 16
         y: 16
         width: 16
         height: 16
