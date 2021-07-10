@@ -1,4 +1,5 @@
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour {
     //audio variables
@@ -31,12 +32,12 @@ public class PlayerController : MonoBehaviour {
     string AnimatorCrowbar = "Animation/Crowbar",
            AnimatorNoWeapon = "Animation/NoWeapon";
     Vector2 lookDirection = new Vector2(1, 0);
-    
 
     void Start() {
         rbPlayer = GetComponent<Rigidbody2D>();
         currentAnimator = GetComponentInChildren<Animator>();        
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();      
+        GameManager.Instance.GetComponentInChildren<CinemachineVirtualCamera>().Follow = transform;        
     }
 
     void Update() {        
@@ -142,6 +143,5 @@ public class PlayerController : MonoBehaviour {
             case Weapons.sledgehammer:
                 break;
         }
-        Debug.Log("New Weapon: " + currentWeapon.ToString());
     }
 }

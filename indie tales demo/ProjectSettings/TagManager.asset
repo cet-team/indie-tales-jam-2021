@@ -47,6 +47,9 @@ TagManager:
   - name: Walls
     uniqueID: 1318432695
     locked: 0
+  - name: Smoke
+    uniqueID: 2960215153
+    locked: 0
   - name: Player
     uniqueID: 3855343893
     locked: 0

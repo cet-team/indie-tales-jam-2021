@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
+
 public class GameManager : MonoBehaviour {
 	//This class holds a static reference to itself to ensure that there will only be
 	//one in existence. This is often referred to as a "singleton" design pattern. Other
@@ -10,7 +11,7 @@ public class GameManager : MonoBehaviour {
 
 	public float deathSequenceDuration = 1.5f;  //How long player death takes before restarting
 		
-	private bool isGamePaused;                            //Is the game currently over?
+	private bool isGamePaused, gameOver;                            //Is the game currently over?
 	[SerializeField] GameObject WinGUI, LoseGUI;
 
 	public static GameManager Instance { get { return _instance; } }
@@ -26,8 +27,8 @@ public class GameManager : MonoBehaviour {
 		_instance = this;
 		DontDestroyOnLoad(gameObject);
 		HideAllTexts();
+
 	}
-    
 
     public static bool IsGamePaused() {
 		if (_instance == null)
@@ -56,24 +57,30 @@ public class GameManager : MonoBehaviour {
 		//If there is no current Game Manager, exit
 		if (_instance == null)
 			return;
-
-		_instance.LoseGUI.SetActive(true);
-		_instance.Invoke("RestartScene", _instance.deathSequenceDuration);
+        if (!_instance.gameOver) {
+			_instance.gameOver = true;
+			_instance.LoseGUI.SetActive(true);
+			_instance.Invoke("RestartScene", _instance.deathSequenceDuration);
+		}
+		
 	}
 
 	public static void PlayerWon() {
 		//If there is no current Game Manager, exit
 		if (_instance == null)
 			return;
-		_instance.WinGUI.SetActive(true);
-		
-		_instance.Invoke("BackToMainMenu", _instance.deathSequenceDuration);
+		if (!_instance.gameOver) {
+			_instance.gameOver = true;
+			_instance.WinGUI.SetActive(true);
+			_instance.Invoke("BackToMainMenu", _instance.deathSequenceDuration);
+		}
 	}
 
 	void RestartScene() {
 		//Reload the current scene
 		Loader.LoadCurrentScene();
 		HideAllTexts();
+		gameOver = false;
 	}
 	void BackToMainMenu() {
 		HideAllTexts();
