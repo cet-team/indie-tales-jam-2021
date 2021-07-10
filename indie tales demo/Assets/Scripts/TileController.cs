@@ -8,40 +8,48 @@ public class TileController : MonoBehaviour {
   
     [SerializeField]Tilemap groundTileMap, wallTileMap;
     TilemapCollider2D tilemapcollider;
+    TileBase[] allWallTiles;
+    int[] hitpoints;
+    BoundsInt bounds;
 
-    private void Start() {
+    private void Awake() {
         groundTileMap.CompressBounds();
         wallTileMap.CompressBounds();
     }
 
-    private void Awake() {
-        BoundsInt bounds = wallTileMap.cellBounds;
-        TileBase[] allWallTiles = wallTileMap.GetTilesBlock(bounds);
+    private void Start() {
+        bounds = wallTileMap.cellBounds;
+        allWallTiles = wallTileMap.GetTilesBlock(bounds);
+        hitpoints = new int[allWallTiles.Length];
         for (int x = 0; x < bounds.size.x; x++) {
             for (int y = 0; y < bounds.size.y; y++) {
-                TileBase tile = allWallTiles[x + y * bounds.size.x];
-
-
-                //tilemapcollider.
+                if (allWallTiles[x + y * bounds.size.x] != null) {
+                    Debug.Log(allWallTiles[x + y * bounds.size.x].name);
+                    if (allWallTiles[x + y * bounds.size.x].name.Contains("Walls1")) {
+                        hitpoints[x + y * bounds.size.x] = 100;
+                    }
+                }
             }
         }
     }
 
-    public void AttackAtPosition(Vector3 position) {
+    public void AttackAtPosition(Vector3 position, int damage) {
         Vector3Int currentCell = wallTileMap.WorldToCell(position);
-        if (currentCell != null) {
-            if (IsTiledestroyable(wallTileMap.GetTile(currentCell))){
-                wallTileMap.SetTile(currentCell, null);
+        
+        if (currentCell != null) {            
+            if (wallTileMap.GetTile(currentCell).name.Contains("Walls1")){
+                
+                TileBase tile = wallTileMap.GetTile(currentCell);
+                for (int i = 0; i < allWallTiles.Length; i++) {
+                    if (allWallTiles[i] == tile) {
+                        hitpoints[i] -= damage;
+                        if (hitpoints[i] <= 0) {
+                            wallTileMap.SetTile(currentCell, null);
+                        }
+                        return;
+                    }
+                }
             }
-        }
-    }
-
-    private bool IsTiledestroyable(TileBase tile) {
-        if (tile.name.Contains("Walls1")) {
-            return true;
-        }
-        else {
-            return false; 
         }
     }
 }

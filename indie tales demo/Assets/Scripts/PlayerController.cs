@@ -116,13 +116,13 @@ public class PlayerController : MonoBehaviour {
     private void AttackWithCrowbar() {
         Collider2D[] hitWalls = Physics2D.OverlapCircleAll(attackPoint.position, CrowbarAttackRange, enemyLayers);
         foreach (Collider2D wall in hitWalls) {
-            wall.GetComponentInParent<TileController>().AttackAtPosition(attackPoint.position);
+            wall.GetComponentInParent<TileController>().AttackAtPosition(attackPoint.position, CrowbarAttackDamage);
         }
     }
     private void AttackWithSledgeHammer() {
         Collider2D[] hitWalls = Physics2D.OverlapCircleAll(attackPoint.position, SledgehammerAttackRange, enemyLayers);
         foreach (Collider2D wall in hitWalls) {
-            wall.GetComponentInParent<TileController>().AttackAtPosition(attackPoint.position);
+            wall.GetComponentInParent<TileController>().AttackAtPosition(attackPoint.position, SledeghammerAttackDamage);
         }
     }
 
