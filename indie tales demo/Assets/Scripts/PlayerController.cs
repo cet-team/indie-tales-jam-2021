@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour {
     public Transform attackPoint;
     public LayerMask enemyLayers;
     Weapons currentWeapon = Weapons.noweapon;
+    private bool attacking;
+    private float attackTimer;
+    private float attackCooldown = 0.5f;
 
     [Header("Crowbar")]
     [SerializeField, Range(0, 100)] int CrowbarAttackDamage = 34;
@@ -28,53 +31,48 @@ public class PlayerController : MonoBehaviour {
     string AnimatorCrowbar = "Animation/Crowbar",
            AnimatorNoWeapon = "Animation/NoWeapon";
     Vector2 lookDirection = new Vector2(1, 0);
-
-
     
 
     void Start() {
         rbPlayer = GetComponent<Rigidbody2D>();
         currentAnimator = GetComponentInChildren<Animator>();        
         audioSource = GetComponent<AudioSource>();
-        
     }
 
-    void Update() {
-        bool attackAllowed = true;
+    void Update() {        
         Vector2 move = GetInputs();
         if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f)) {
             lookDirection.Set(move.x, move.y);
             lookDirection.Normalize();
             SetAtackPoint();
         }
-
-        if (Input.GetKeyDown(KeyCode.Space) && attackAllowed) {
-            currentAnimator.SetTrigger("Attack");
-            switch (currentWeapon) {
-                case Weapons.noweapon:
-                    break;
-                case Weapons.crowbar:
-                    AttackWithCrowbar();
-                    break;
-                case Weapons.sledgehammer:
-                    AttackWithSledgeHammer();
-                    break;
+        
+        if (attacking) {
+            attackTimer -= Time.deltaTime;
+            if(attackTimer < 0) {
+                attacking = false;
             }
+        }        
+
+        if (Input.GetKeyDown(KeyCode.Space) && !attacking) {
+            currentAnimator.SetTrigger("Attack");
+            attacking = true;
+            attackTimer = attackCooldown;
         }
 
         if (lookDirection.x > 0) {
             GetComponentInChildren<SpriteRenderer>().flipX = true;
-            GetComponentInChildren<FLashLightController>().FlashRight();
+            GetComponentInChildren<FlashLightController>().FlashRight();
         }
         else if(lookDirection.x < 0) {
             GetComponentInChildren<SpriteRenderer>().flipX = false;
-            GetComponentInChildren<FLashLightController>().FlashLeft();
+            GetComponentInChildren<FlashLightController>().FlashLeft();
         }
         else if(lookDirection.y < 0) {
-            GetComponentInChildren<FLashLightController>().FlashDown();
+            GetComponentInChildren<FlashLightController>().FlashDown();
         }
         else if (lookDirection.y > 0) {
-            GetComponentInChildren<FLashLightController>().FlashUp();
+            GetComponentInChildren<FlashLightController>().FlashUp();
         }
 
         currentAnimator.SetFloat("Look X", lookDirection.x);
@@ -99,6 +97,20 @@ public class PlayerController : MonoBehaviour {
 
     private void PlaySound(AudioClip audioClip) {
         audioSource.PlayOneShot(audioClip);
+    }
+
+
+    public void AttackCalledbyAnimationEvents() {
+        switch (currentWeapon) {
+            case Weapons.noweapon:
+                break;
+            case Weapons.crowbar:
+                AttackWithCrowbar();
+                break;
+            case Weapons.sledgehammer:
+                AttackWithSledgeHammer();
+                break;
+        }
     }
 
     private void AttackWithCrowbar() {

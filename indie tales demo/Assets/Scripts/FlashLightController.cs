@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FLashLightController : MonoBehaviour
+public class FlashLightController : MonoBehaviour
 {
 
     Vector3 flashRight = new Vector3(1.92f, 0.27f);
