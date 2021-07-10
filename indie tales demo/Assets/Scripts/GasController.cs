@@ -29,11 +29,12 @@ public class GasController : MonoBehaviour {
         audioSource.PlayOneShot(soundThrow);*/
     }    
 
-    private void LeakInAllPossibledirections() {
+    private void LeakInAllPossibledirections(Vector3 origin) {
         Vector3 Up = origin + Vector3.up;
         Vector3 Down = origin + Vector3.down;
         Vector3 Left = origin + Vector3.left;
         Vector3 Right = origin + Vector3.right;
+
 
 
     }
