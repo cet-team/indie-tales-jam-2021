@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 	public float deathSequenceDuration = 1.5f;  //How long player death takes before restarting
 		
 	private bool isGamePaused;                            //Is the game currently over?
+	[SerializeField] GameObject WinGUI, LoseGUI;
 
 	public static GameManager Instance { get { return _instance; } }
 
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour {
 
 		_instance = this;
 		DontDestroyOnLoad(gameObject);
+		HideAllTexts();
 	}
     
 
@@ -54,8 +56,8 @@ public class GameManager : MonoBehaviour {
 		//If there is no current Game Manager, exit
 		if (_instance == null)
 			return;
-		
-		//UIManager.ShowGameOverText();
+
+		_instance.LoseGUI.SetActive(true);
 		_instance.Invoke("RestartScene", _instance.deathSequenceDuration);
 	}
 
@@ -63,18 +65,23 @@ public class GameManager : MonoBehaviour {
 		//If there is no current Game Manager, exit
 		if (_instance == null)
 			return;
-
-		//UIManager.ShowWinText();
+		_instance.WinGUI.SetActive(true);
+		
 		_instance.Invoke("BackToMainMenu", _instance.deathSequenceDuration);
 	}
 
 	void RestartScene() {
 		//Reload the current scene
 		Loader.LoadCurrentScene();
-		//UIManager.HideAllTexts();
+		HideAllTexts();
 	}
 	void BackToMainMenu() {
-		//UIManager.HideAllTexts();
+		HideAllTexts();
 		Loader.Load(Loader.Scene.MainMenu);
 	}
+
+	void HideAllTexts() {
+		WinGUI.SetActive(false);
+		LoseGUI.SetActive(false);
+    }
 }

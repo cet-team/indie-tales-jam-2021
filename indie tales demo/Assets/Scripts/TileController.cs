@@ -24,7 +24,6 @@ public class TileController : MonoBehaviour {
         for (int x = 0; x < bounds.size.x; x++) {
             for (int y = 0; y < bounds.size.y; y++) {
                 if (allWallTiles[x + y * bounds.size.x] != null) {
-                    Debug.Log(allWallTiles[x + y * bounds.size.x].name);
                     if (allWallTiles[x + y * bounds.size.x].name.Contains("Walls1")) {
                         hitpoints[x + y * bounds.size.x] = 100;
                     }
