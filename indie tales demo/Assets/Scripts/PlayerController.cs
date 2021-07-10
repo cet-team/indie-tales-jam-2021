@@ -13,19 +13,30 @@ public class PlayerController : MonoBehaviour {
     //attacking
     public Transform attackPoint;
     public LayerMask enemyLayers;
+    Weapons currentWeapon = Weapons.noweapon;
 
-    [Header("Little Attack")]
-    [SerializeField, Range(0, 100)] int attackDamage = 15;
-    [SerializeField, Range(0.1f, 10f)] float attackRange = 0.5f;
+    [Header("Crowbar")]
+    [SerializeField, Range(0, 100)] int CrowbarAttackDamage = 34;
+    [SerializeField, Range(0.1f, 10f)] float CrowbarAttackRange = 0.5f;
+
+    [Header("Sledgehammer")]
+    [SerializeField, Range(0, 100)] int SledeghammerAttackDamage = 51;
+    [SerializeField, Range(0.1f, 10f)] float SledgehammerAttackRange = 0.5f;
 
     //animation variables
-    Animator animator;
+    Animator currentAnimator;
+    string AnimatorCrowbar = "Animation/Crowbar",
+           AnimatorNoWeapon = "Animation/NoWeapon";
     Vector2 lookDirection = new Vector2(1, 0);
+
+
+    
 
     void Start() {
         rbPlayer = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        currentAnimator = GetComponentInChildren<Animator>();        
         audioSource = GetComponent<AudioSource>();
+        
     }
 
     void Update() {
@@ -38,14 +49,37 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && attackAllowed) {
-            Attack();
+            currentAnimator.SetTrigger("Attack");
+            switch (currentWeapon) {
+                case Weapons.noweapon:
+                    break;
+                case Weapons.crowbar:
+                    AttackWithCrowbar();
+                    break;
+                case Weapons.sledgehammer:
+                    AttackWithSledgeHammer();
+                    break;
+            }
         }
 
-        /*
-        animator.SetFloat("Look X", lookDirection.x);
-        animator.SetFloat("Look Y", lookDirection.y);
-        animator.SetFloat("Speed", move.magnitude);
-        */
+        if (lookDirection.x > 0) {
+            GetComponentInChildren<SpriteRenderer>().flipX = true;
+            GetComponentInChildren<FLashLightController>().FlashRight();
+        }
+        else if(lookDirection.x < 0) {
+            GetComponentInChildren<SpriteRenderer>().flipX = false;
+            GetComponentInChildren<FLashLightController>().FlashLeft();
+        }
+        else if(lookDirection.y < 0) {
+            GetComponentInChildren<FLashLightController>().FlashDown();
+        }
+        else if (lookDirection.y > 0) {
+            GetComponentInChildren<FLashLightController>().FlashUp();
+        }
+
+        currentAnimator.SetFloat("Look X", lookDirection.x);
+        currentAnimator.SetFloat("Look Y", lookDirection.y);
+        currentAnimator.SetFloat("Speed", move.magnitude);        
     }
 
     // FixedUpdate for Movement
@@ -67,8 +101,14 @@ public class PlayerController : MonoBehaviour {
         audioSource.PlayOneShot(audioClip);
     }
 
-    private void Attack() {
-        Collider2D[] hitWalls = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+    private void AttackWithCrowbar() {
+        Collider2D[] hitWalls = Physics2D.OverlapCircleAll(attackPoint.position, CrowbarAttackRange, enemyLayers);
+        foreach (Collider2D wall in hitWalls) {
+            wall.GetComponentInParent<TileController>().AttackAtPosition(attackPoint.position);
+        }
+    }
+    private void AttackWithSledgeHammer() {
+        Collider2D[] hitWalls = Physics2D.OverlapCircleAll(attackPoint.position, SledgehammerAttackRange, enemyLayers);
         foreach (Collider2D wall in hitWalls) {
             wall.GetComponentInParent<TileController>().AttackAtPosition(attackPoint.position);
         }
@@ -76,5 +116,20 @@ public class PlayerController : MonoBehaviour {
 
     private void SetAtackPoint() {
         attackPoint.localPosition = lookDirection / 2;
+    }
+
+    public void SetWeapon(Weapons weapon) {
+        currentWeapon = weapon;
+        switch (weapon) {
+            case Weapons.noweapon:
+                currentAnimator.runtimeAnimatorController = Resources.Load(AnimatorNoWeapon) as RuntimeAnimatorController;
+                break;
+            case Weapons.crowbar:
+                currentAnimator.runtimeAnimatorController = Resources.Load(AnimatorCrowbar) as RuntimeAnimatorController;
+                break;
+            case Weapons.sledgehammer:
+                break;
+        }
+        Debug.Log("New Weapon: " + currentWeapon.ToString());
     }
 }
