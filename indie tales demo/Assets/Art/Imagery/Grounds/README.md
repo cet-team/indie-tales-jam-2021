@@ -1,0 +1,1 @@
+Each tile is 16x16 px

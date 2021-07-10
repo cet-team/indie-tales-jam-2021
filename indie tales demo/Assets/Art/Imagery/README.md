@@ -1,0 +1,1 @@
+All images should use 16px per segment

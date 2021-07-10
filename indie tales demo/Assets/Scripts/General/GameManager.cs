@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
+
 public class GameManager : MonoBehaviour {
 	//This class holds a static reference to itself to ensure that there will only be
 	//one in existence. This is often referred to as a "singleton" design pattern. Other
@@ -10,13 +11,12 @@ public class GameManager : MonoBehaviour {
 
 	public float deathSequenceDuration = 1.5f;  //How long player death takes before restarting
 		
-	private bool isGamePaused;                            //Is the game currently over?
+	private bool isGamePaused, gameOver;                            //Is the game currently over?
+	[SerializeField] GameObject WinGUI, LoseGUI;
 
 	public static GameManager Instance { get { return _instance; } }
 
-
 	void Awake() {
-
 		//If a Game Manager exists and this isn't it...
 		if (_instance != null && _instance != this) {
 			//...destroy this and exit. There can only be one Game Manager
@@ -26,8 +26,9 @@ public class GameManager : MonoBehaviour {
 
 		_instance = this;
 		DontDestroyOnLoad(gameObject);
+		HideAllTexts();
+
 	}
-    
 
     public static bool IsGamePaused() {
 		if (_instance == null)
@@ -56,47 +57,38 @@ public class GameManager : MonoBehaviour {
 		//If there is no current Game Manager, exit
 		if (_instance == null)
 			return;
-
-		//Invoke the RestartScene() method after a delay
-		UIManager.ShowGameOverText();
-		_instance.Invoke("RestartScene", _instance.deathSequenceDuration);
+        if (!_instance.gameOver) {
+			_instance.gameOver = true;
+			_instance.LoseGUI.SetActive(true);
+			_instance.Invoke("RestartScene", _instance.deathSequenceDuration);
+		}
+		
 	}
 
 	public static void PlayerWon() {
 		//If there is no current Game Manager, exit
 		if (_instance == null)
 			return;
-
-		UIManager.ShowWinText();
-		_instance.Invoke("BackToMainMenu", _instance.deathSequenceDuration);
-
-		//AudioManager.PlayWonAudio();
-	}
-
-	public static void Level1Finished() {
-		//If there is no current Game Manager, exit
-		if (_instance == null)
-			return;		
-
-		UIManager.ShowLevel1FinishText();
-		_instance.Invoke("GoToCutScene_lvl1_to_lvl2", _instance.deathSequenceDuration);		
+		if (!_instance.gameOver) {
+			_instance.gameOver = true;
+			_instance.WinGUI.SetActive(true);
+			_instance.Invoke("BackToMainMenu", _instance.deathSequenceDuration);
+		}
 	}
 
 	void RestartScene() {
-		//Play the scene restart audio
-		//AudioManager.PlaySceneRestartAudio();
-
 		//Reload the current scene
 		Loader.LoadCurrentScene();
-		UIManager.HideAllTexts();
+		HideAllTexts();
+		gameOver = false;
 	}
 	void BackToMainMenu() {
-		UIManager.HideAllTexts();
+		HideAllTexts();
 		Loader.Load(Loader.Scene.MainMenu);
 	}
 
-	void GoToCutScene_lvl1_to_lvl2() {		
-		UIManager.HideAllTexts();
-		Loader.Load(Loader.Scene.Cutscene_lvl1_to_lvl2);
-	}
+	void HideAllTexts() {
+		WinGUI.SetActive(false);
+		LoseGUI.SetActive(false);
+    }
 }
