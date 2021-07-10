@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeakyPipe
+  m_Name: Sledgehammer_Walk_side
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 6261180780860757445, guid: 642f0f1778022684e922735be9436a6d, type: 3}
+      value: {fileID: -4633198491822596978, guid: c472058f0fa78ee4fad4ff2e8c016a2a, type: 3}
     - time: 0.16666667
-      value: {fileID: 6958147056157409064, guid: 642f0f1778022684e922735be9436a6d, type: 3}
+      value: {fileID: -5424117781590416242, guid: c472058f0fa78ee4fad4ff2e8c016a2a, type: 3}
     - time: 0.33333334
-      value: {fileID: 7503490461981356357, guid: 642f0f1778022684e922735be9436a6d, type: 3}
+      value: {fileID: 6707110600836342473, guid: c472058f0fa78ee4fad4ff2e8c016a2a, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,9 +44,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 6261180780860757445, guid: 642f0f1778022684e922735be9436a6d, type: 3}
-    - {fileID: 6958147056157409064, guid: 642f0f1778022684e922735be9436a6d, type: 3}
-    - {fileID: 7503490461981356357, guid: 642f0f1778022684e922735be9436a6d, type: 3}
+    - {fileID: -4633198491822596978, guid: c472058f0fa78ee4fad4ff2e8c016a2a, type: 3}
+    - {fileID: -5424117781590416242, guid: c472058f0fa78ee4fad4ff2e8c016a2a, type: 3}
+    - {fileID: 6707110600836342473, guid: c472058f0fa78ee4fad4ff2e8c016a2a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

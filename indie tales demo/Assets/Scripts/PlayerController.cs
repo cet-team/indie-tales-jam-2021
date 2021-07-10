@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour {
     //animation variables
     Animator currentAnimator;
     string AnimatorCrowbar = "Animation/Crowbar",
-           AnimatorNoWeapon = "Animation/NoWeapon";
+           AnimatorNoWeapon = "Animation/NoWeapon",
+           AnimatorSledgehammer = "Animation/Sledgehammer";
     Vector2 lookDirection = new Vector2(1, 0);
 
     void Start() {
@@ -141,6 +142,7 @@ public class PlayerController : MonoBehaviour {
                 currentAnimator.runtimeAnimatorController = Resources.Load(AnimatorCrowbar) as RuntimeAnimatorController;
                 break;
             case Weapons.sledgehammer:
+                currentAnimator.runtimeAnimatorController = Resources.Load(AnimatorSledgehammer) as RuntimeAnimatorController;
                 break;
         }
     }
