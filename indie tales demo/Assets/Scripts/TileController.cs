@@ -38,9 +38,9 @@ public class TileController : MonoBehaviour {
     public void AttackAtPosition(Vector3 position, int damage) {
         Vector3Int currentCell = wallTileMap.WorldToCell(position);
         
-        if (currentCell != null && wallTileMap.GetTile(currentCell) != null) {  
-            if (wallTileMap.GetTile(currentCell).name.Contains(DestroyableWallName)){
-                
+        if (currentCell != null && wallTileMap.GetTile(currentCell) != null) {
+            if (wallTileMap.GetTile(currentCell).name.Contains(DestroyableWallName)) {
+
                 TileBase tile = wallTileMap.GetTile(currentCell);
                 for (int i = 0; i < allWallTiles.Length; i++) {
                     if (allWallTiles[i] == tile) {
@@ -55,6 +55,9 @@ public class TileController : MonoBehaviour {
                         return;
                     }
                 }
+            }
+            else { 
+                GameManager.Instance.PlayPlayerHit2Sound();
             }
         }
     }
