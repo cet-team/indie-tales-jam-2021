@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e4e4fc705376343a3e65b25d94f0e2, type: 3}
+  m_Name: Ground3 Terrain
+  m_EditorClassIdentifier: 
+  m_Sprites:
+  - {fileID: 8286028416591074521, guid: 0bdc59fc7096aac41b88d7520e1015f4, type: 3}
+  - {fileID: -1632582905944510194, guid: 0bdc59fc7096aac41b88d7520e1015f4, type: 3}
+  - {fileID: 0}
+  - {fileID: -3724284038515689445, guid: 0bdc59fc7096aac41b88d7520e1015f4, type: 3}
+  - {fileID: 4956861564324638037, guid: 0bdc59fc7096aac41b88d7520e1015f4, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: -4680846219599941762, guid: 0bdc59fc7096aac41b88d7520e1015f4, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1478485855885476566, guid: 0bdc59fc7096aac41b88d7520e1015f4, type: 3}
