@@ -1,34 +1,37 @@
 fileFormatVersion: 2
-guid: 3610824c37592ee4092d268177b2b9f7
+guid: 1052add51ebbdb04994fa4107bc9f92b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5584634366651417252
-    second: Walls as Pipelines_0
+      213: 4251741612032352045
+    second: Walls as Pipelines Horizontal_0
   - first:
-      213: -7633335761861270804
-    second: Walls as Pipelines_1
+      213: -3521699371154974749
+    second: Walls as Pipelines Horizontal_1
   - first:
-      213: 5235681908330010651
-    second: Walls as Pipelines_3
+      213: -2284667482328997859
+    second: Walls as Pipelines Horizontal_2
   - first:
-      213: 2115147585723088375
-    second: Walls as Pipelines_5
+      213: -4466848713544312706
+    second: Walls as Pipelines Horizontal_3
   - first:
-      213: -8058376796327306801
-    second: Walls as Pipelines_6
+      213: -1503211967399569783
+    second: Walls as Pipelines Horizontal_4
   - first:
-      213: 2271162920293301163
-    second: Walls as Pipelines_2
+      213: -1884885211414031315
+    second: Walls as Pipelines Horizontal_5
   - first:
-      213: 3355845078043263629
-    second: Walls as Pipelines_4
+      213: -1135096041458344409
+    second: Walls as Pipelines Horizontal_6
   - first:
-      213: -6142401911455104842
-    second: Walls as Pipelines_7
+      213: -1018416897990569034
+    second: Walls as Pipelines Horizontal_7
   - first:
-      213: -1801634213906341460
-    second: Walls as Pipelines_8
+      213: 8859676606782130913
+    second: Walls as Pipelines Horizontal_8
+  - first:
+      213: 9210748293590858280
+    second: Walls as Pipelines Horizontal_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -130,91 +133,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walls as Pipelines_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a242b82e5b908d40800000000000000
-      internalID: 5584634366651417252
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walls as Pipelines_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce229f65191f01690800000000000000
-      internalID: -7633335761861270804
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walls as Pipelines_3
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1813fea4f0e8a840800000000000000
-      internalID: 5235681908330010651
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walls as Pipelines_5
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7fdbc8ec5838a5d10800000000000000
-      internalID: 2115147585723088375
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walls as Pipelines_6
+      name: Walls as Pipelines Horizontal_0
       rect:
         serializedVersion: 2
         x: 0
@@ -228,18 +147,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc919a4bff4ea2090800000000000000
-      internalID: -8058376796327306801
+      spriteID: d2f5fed2878310b30800000000000000
+      internalID: 4251741612032352045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walls as Pipelines_2
+      name: Walls as Pipelines Horizontal_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 16
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -249,18 +168,123 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: babfe1394aac48f10800000000000000
-      internalID: 2271162920293301163
+      spriteID: 3e75798a419602fc0800000000000000
+      internalID: -3521699371154974749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walls as Pipelines_4
+      name: Walls as Pipelines Horizontal_2
       rect:
         serializedVersion: 2
         x: 32
-        y: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10e4ed870b3b40e0800000000000000
+      internalID: -2284667482328997859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walls as Pipelines Horizontal_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e78d7cbe2c09202c0800000000000000
+      internalID: -4466848713544312706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walls as Pipelines Horizontal_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98658051ea4832be0800000000000000
+      internalID: -1503211967399569783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walls as Pipelines Horizontal_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24974303ea87d5e0800000000000000
+      internalID: -1884885211414031315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walls as Pipelines Horizontal_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e5cee0a245f30f0800000000000000
+      internalID: -1135096041458344409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walls as Pipelines Horizontal_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -270,14 +294,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d820306815b529e20800000000000000
-      internalID: 3355845078043263629
+      spriteID: 6b354022a3bddd1f0800000000000000
+      internalID: -1018416897990569034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walls as Pipelines_7
+      name: Walls as Pipelines Horizontal_8
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea461ceee4e3fa70800000000000000
+      internalID: 8859676606782130913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walls as Pipelines Horizontal_9
       rect:
         serializedVersion: 2
         x: 32
@@ -291,29 +336,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b0c900610ec1caa0800000000000000
-      internalID: -6142401911455104842
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walls as Pipelines_8
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca12ce85a3f4ff6e0800000000000000
-      internalID: -1801634213906341460
+      spriteID: 82ab40bb5c623df70800000000000000
+      internalID: 9210748293590858280
       vertices: []
       indices: 
       edges: []
@@ -321,7 +345,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 99b1d765fafea8840940cc75a46a4a99
     internalID: 0
     vertices: []
     indices: 
