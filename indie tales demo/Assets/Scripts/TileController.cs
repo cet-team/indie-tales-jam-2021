@@ -45,6 +45,10 @@ public class TileController : MonoBehaviour {
                         hitpoints[i] -= damage;
                         if (hitpoints[i] <= 0) {
                             wallTileMap.SetTile(currentCell, null);
+                            GameManager.Instance.PlayWallDawn1Sound();
+                        }
+                        else {
+                            GameManager.Instance.PlayWallAlmostsDownSound();
                         }
                         return;
                     }

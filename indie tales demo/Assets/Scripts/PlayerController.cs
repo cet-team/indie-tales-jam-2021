@@ -2,8 +2,6 @@ using UnityEngine;
 using Cinemachine;
 
 public class PlayerController : MonoBehaviour {
-    //audio variables
-    private AudioSource audioSource;
 
     //movement and physics variables
     Rigidbody2D rbPlayer;
@@ -36,9 +34,9 @@ public class PlayerController : MonoBehaviour {
 
     void Start() {
         rbPlayer = GetComponent<Rigidbody2D>();
-        currentAnimator = GetComponentInChildren<Animator>();        
-        audioSource = GetComponent<AudioSource>();      
-        GameManager.Instance.GetComponentInChildren<CinemachineVirtualCamera>().Follow = transform;        
+        currentAnimator = GetComponentInChildren<Animator>();                 
+        GameManager.Instance.GetComponentInChildren<CinemachineVirtualCamera>().Follow = transform;
+        GameManager.Instance.PLayGameStartSound();
     }
 
     void Update() {        
@@ -96,11 +94,6 @@ public class PlayerController : MonoBehaviour {
         verticalInput = Input.GetAxis("Vertical");
         return new Vector2(horizontalInput, verticalInput);
     }
-
-    private void PlaySound(AudioClip audioClip) {
-        audioSource.PlayOneShot(audioClip);
-    }
-
 
     public void AttackCalledbyAnimationEvents() {
         switch (currentWeapon) {

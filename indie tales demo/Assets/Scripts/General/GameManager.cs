@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour {
 	private bool isGamePaused, gameOver;                            //Is the game currently over?
 	[SerializeField] GameObject WinGUI, LoseGUI;
 
+	private AudioSource audioSource;
+	[SerializeField] AudioClip gameOverSound, gameStartSound, playerHit1Sound, playerHit2Sound,
+		wallAlmostsDownSound, wallDawn1Sound, wallDawn2Sound;
+
 	public static GameManager Instance { get { return _instance; } }
 
 	void Awake() {
@@ -26,9 +30,9 @@ public class GameManager : MonoBehaviour {
 
 		_instance = this;
 		DontDestroyOnLoad(gameObject);
+		audioSource = GetComponent<AudioSource>();
 		HideAllTexts();
-
-	}
+	}	
 
     public static bool IsGamePaused() {
 		if (_instance == null)
@@ -61,8 +65,8 @@ public class GameManager : MonoBehaviour {
 			_instance.gameOver = true;
 			_instance.LoseGUI.SetActive(true);
 			_instance.Invoke("RestartScene", _instance.deathSequenceDuration);
-		}
-		
+			_instance.PLayGameOverSound();
+		}		
 	}
 
 	public static void PlayerWon() {
@@ -91,4 +95,12 @@ public class GameManager : MonoBehaviour {
 		WinGUI.SetActive(false);
 		LoseGUI.SetActive(false);
     }
+
+	public void PLayGameOverSound() { audioSource.PlayOneShot(gameOverSound); }
+	public void PLayGameStartSound() { audioSource.PlayOneShot(gameStartSound); }
+	public void PLayPlayerHit1Sound() { audioSource.PlayOneShot(playerHit1Sound); }
+	public void PlayPlayerHit2Sound() { audioSource.PlayOneShot(playerHit2Sound); }
+	public void PlayWallAlmostsDownSound() { audioSource.PlayOneShot(wallAlmostsDownSound); }
+	public void PlayWallDawn1Sound() { audioSource.PlayOneShot(wallDawn1Sound); }
+	public void PlayWallDawn2Sound() { audioSource.PlayOneShot(wallDawn2Sound); }
 }

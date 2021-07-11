@@ -13,7 +13,7 @@ public class GasController : MonoBehaviour {
     Vector3Int originAsInt;
 
     private void Start() {
-        Invoke("StartLeaking", 2f);
+        Invoke("StartLeaking", 4f);
         origin = smokeMap.LocalToCellInterpolated(transform.position);
         originAsInt = smokeMap.LocalToCell(transform.position);
     }
