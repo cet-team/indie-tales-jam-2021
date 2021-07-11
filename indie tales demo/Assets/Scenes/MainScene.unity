@@ -10295,6 +10295,90 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1619433660}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onEndGame.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onPauseGame.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onUnpauseGame.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onEndGame.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onEndGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1619433661}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onPauseGame.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onPauseGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1619433661}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onUnpauseGame.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onEndGame.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onEndGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseGameTimeCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onUnpauseGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1619433661}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onPauseGame.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onPauseGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseGameTimeCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onUnpauseGame.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onUnpauseGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGameTimeCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onEndGame.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onPauseGame.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onUnpauseGame.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onEndGame.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onPauseGame.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582021626393212200, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: onUnpauseGame.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7582021626393212201, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
       propertyPath: m_RootOrder
       value: 0

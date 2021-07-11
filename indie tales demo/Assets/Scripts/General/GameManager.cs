@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour {
@@ -17,6 +19,14 @@ public class GameManager : MonoBehaviour {
 	private AudioSource audioSource;
 	[SerializeField] AudioClip gameOverSound, gameStartSound, playerHit1Sound, playerHit2Sound,
 		wallAlmostsDownSound, wallDawn1Sound, wallDawn2Sound;
+
+
+    [SerializeField] Text timeCounterText;
+    float gameTimeCounter = 0;
+    bool gameTimeIsCounting = false;
+	// [SerializeField] UnityEvent onEndGame;
+	// [SerializeField] UnityEvent onPauseGame;
+	// [SerializeField] UnityEvent onUnpauseGame;
 
 	public static GameManager Instance { get { return _instance; } }
 
@@ -47,6 +57,7 @@ public class GameManager : MonoBehaviour {
 
 		Time.timeScale = 0f;
 		_instance.isGamePaused = true;
+		_instance.PauseGameTimeCounter();
 	}
 
 	public static void UnPauseGame() {
@@ -55,6 +66,7 @@ public class GameManager : MonoBehaviour {
 
 		Time.timeScale = 1f;
 		_instance.isGamePaused = false;
+		_instance.ResumeGameTimeCounter();
 	}
 
 	public static void PlayerDied() {
@@ -66,6 +78,7 @@ public class GameManager : MonoBehaviour {
 			_instance.LoseGUI.SetActive(true);
 			_instance.Invoke("RestartScene", _instance.deathSequenceDuration);
 			_instance.PLayGameOverSound();
+			_instance.PauseGameTimeCounter();
 		}		
 	}
 
@@ -77,6 +90,7 @@ public class GameManager : MonoBehaviour {
 			_instance.gameOver = true;
 			_instance.WinGUI.SetActive(true);
 			_instance.Invoke("BackToMainMenu", _instance.deathSequenceDuration);
+			_instance.PauseGameTimeCounter();
 		}
 	}
 
@@ -103,4 +117,28 @@ public class GameManager : MonoBehaviour {
 	public void PlayWallAlmostsDownSound() { audioSource.PlayOneShot(wallAlmostsDownSound); }
 	public void PlayWallDawn1Sound() { audioSource.PlayOneShot(wallDawn1Sound); }
 	public void PlayWallDawn2Sound() { audioSource.PlayOneShot(wallDawn2Sound); }
+	
+	public void StartTimeCounter() {
+        gameTimeCounter = 0;
+        ResumeGameTimeCounter();
+	}
+
+    public void UpdateTimeCounter() {
+        if (!gameTimeIsCounting) {
+            return;
+        }
+
+        gameTimeCounter += Time.deltaTime;
+        int counterAsInt = (int)gameTimeCounter;
+        timeCounterText.text = counterAsInt.ToString();
+    }
+
+    public void PauseGameTimeCounter() {
+        gameTimeIsCounting = false;
+    }
+
+    public void ResumeGameTimeCounter() {
+        gameTimeIsCounting = true;
+    }
+
 }

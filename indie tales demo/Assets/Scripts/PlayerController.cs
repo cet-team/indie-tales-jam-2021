@@ -37,9 +37,12 @@ public class PlayerController : MonoBehaviour {
         currentAnimator = GetComponentInChildren<Animator>();                 
         GameManager.Instance.GetComponentInChildren<CinemachineVirtualCamera>().Follow = transform;
         GameManager.Instance.PLayGameStartSound();
+        GameManager.Instance.StartTimeCounter();
     }
 
-    void Update() {        
+    void Update() {   
+        GameManager.Instance.UpdateTimeCounter();     
+
         Vector2 move = GetInputs();
         if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f)) {
             lookDirection.Set(move.x, move.y);
