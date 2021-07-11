@@ -1,37 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Smoke : MonoBehaviour {
 
-    private int depth = 8;
-    void Start() {
+    GameObject Grid;
+    Tilemap smokeTileMap, wallTileMap;
+    public Tile smokeGroundTile;
+
+    private int depth = 6;
+    private Vector3 origin;
+    private Vector3Int originAsInt;
+
+    private void Start() {
         name = "Smoke " + depth;
 
         if (depth <= 1) {
             return;
-        }
+        }    
+        
+        Grid = GameObject.FindGameObjectWithTag("Grid");
+        smokeTileMap = Grid.transform.Find("SmokeTilemap").GetComponent<Tilemap>();
+        wallTileMap = Grid.transform.Find("WallTileMap").GetComponent<Tilemap>();
+        
+
+        origin = smokeTileMap.LocalToCellInterpolated(transform.position);
+        originAsInt = smokeTileMap.LocalToCell(transform.position);
+
+        TileBase tile = Instantiate(smokeGroundTile);
+        smokeTileMap.SetTile(originAsInt, tile);
+
         StartCoroutine(CreateAfterASecond());        
     }
 
     IEnumerator CreateAfterASecond() {
         yield return new WaitForSeconds(1.5f);
-        Smoke childA = CreateChild(Vector3.up, Quaternion.identity);
-        Smoke childB = CreateChild(Vector3.right, Quaternion.Euler(0f, 0f, -90f));
-        Smoke childC = CreateChild(Vector3.left, Quaternion.Euler(0f, 0f, 90f));
-        Smoke childD = CreateChild(Vector3.down, Quaternion.identity);
 
-        childA.transform.SetParent(transform, false);
-        childB.transform.SetParent(transform, false);
-        childC.transform.SetParent(transform, false);
-        childD.transform.SetParent(transform, false);
+        if (!smokeTileMap.HasTile(originAsInt + Vector3Int.up) && !wallTileMap.HasTile(originAsInt + Vector3Int.up)) {
+            Smoke childA = CreateChild(Vector3.up);
+            childA.transform.SetParent(transform, false);
+        }
+        if (!smokeTileMap.HasTile(originAsInt + Vector3Int.right) && !wallTileMap.HasTile(originAsInt + Vector3Int.right)) {
+            Smoke childB = CreateChild(Vector3.right);
+            childB.transform.SetParent(transform, false);
+        }        
+        if (!smokeTileMap.HasTile(originAsInt + Vector3Int.left) && !wallTileMap.HasTile(originAsInt + Vector3Int.left)) {
+            Smoke childC = CreateChild(Vector3.left);
+            childC.transform.SetParent(transform, false);
+        }
+        if (!smokeTileMap.HasTile(originAsInt + Vector3Int.down) && !wallTileMap.HasTile(originAsInt + Vector3Int.down)) {
+            Smoke childD = CreateChild(Vector3.down);
+            childD.transform.SetParent(transform, false);
+        }
     }
 
-    Smoke CreateChild(Vector3 direction, Quaternion rotation) {
+    Smoke CreateChild(Vector3 direction) {
         Smoke child = Instantiate(this);
         child.depth = depth - 1;
         child.transform.localPosition = direction;
-        child.transform.localRotation = rotation;
         return child;
     }
 
@@ -39,10 +66,7 @@ public class Smoke : MonoBehaviour {
         if(collision!= null) {
             if (collision.gameObject.CompareTag("Player")){
                 GameManager.PlayerDied();
-            }
-            if (collision.gameObject.CompareTag("Smoke")) {
-                Destroy(gameObject);
-            }
+            }            
         }
     }
 }
