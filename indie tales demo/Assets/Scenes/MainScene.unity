@@ -4216,6 +4216,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 446088328, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474720389, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574965355, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574965355, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574965355, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574965355, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 7582021626080503308, guid: a2d194c5e14a85947ba1cd0bc6d5fcfe, type: 3}
       propertyPath: m_Follow
       value: 
