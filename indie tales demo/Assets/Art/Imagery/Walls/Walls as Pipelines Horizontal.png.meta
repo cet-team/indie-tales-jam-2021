@@ -7,10 +7,10 @@ TextureImporter:
     second: Walls as Pipelines Horizontal_0
   - first:
       213: -3521699371154974749
-    second: Walls as Pipelines Horizontal_1
+    second: Destroyable Wall 1d
   - first:
       213: -2284667482328997859
-    second: Walls as Pipelines Horizontal_2
+    second: Destroyable Wall 2d
   - first:
       213: -4466848713544312706
     second: Walls as Pipelines Horizontal_3
@@ -28,10 +28,10 @@ TextureImporter:
     second: Walls as Pipelines Horizontal_7
   - first:
       213: 8859676606782130913
-    second: Walls as Pipelines Horizontal_8
+    second: Destroyable Wall 1c
   - first:
       213: 9210748293590858280
-    second: Walls as Pipelines Horizontal_9
+    second: Destroyable Wall 2c
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -154,7 +154,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walls as Pipelines Horizontal_1
+      name: Destroyable Wall 1d
       rect:
         serializedVersion: 2
         x: 16
@@ -175,7 +175,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walls as Pipelines Horizontal_2
+      name: Destroyable Wall 2d
       rect:
         serializedVersion: 2
         x: 32
@@ -288,7 +288,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -301,7 +301,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walls as Pipelines Horizontal_8
+      name: Destroyable Wall 1c
       rect:
         serializedVersion: 2
         x: 16
@@ -309,7 +309,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -322,7 +322,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walls as Pipelines Horizontal_9
+      name: Destroyable Wall 2c
       rect:
         serializedVersion: 2
         x: 32
@@ -330,7 +330,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

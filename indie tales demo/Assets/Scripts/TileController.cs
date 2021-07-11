@@ -17,6 +17,8 @@ public class TileController : MonoBehaviour {
         wallTileMap.CompressBounds();
     }
 
+    private static string DestroyableWallName = "Destroyable Wall ";
+
     private void Start() {
         bounds = wallTileMap.cellBounds;
         allWallTiles = wallTileMap.GetTilesBlock(bounds);
@@ -24,7 +26,7 @@ public class TileController : MonoBehaviour {
         for (int x = 0; x < bounds.size.x; x++) {
             for (int y = 0; y < bounds.size.y; y++) {
                 if (allWallTiles[x + y * bounds.size.x] != null) {
-                    if (allWallTiles[x + y * bounds.size.x].name.Contains("Walls1")) {
+                    if (allWallTiles[x + y * bounds.size.x].name.Contains(DestroyableWallName)) {
                         hitpoints[x + y * bounds.size.x] = 100;
                     }
                 }
@@ -36,8 +38,8 @@ public class TileController : MonoBehaviour {
     public void AttackAtPosition(Vector3 position, int damage) {
         Vector3Int currentCell = wallTileMap.WorldToCell(position);
         
-        if (currentCell != null) {            
-            if (wallTileMap.GetTile(currentCell).name.Contains("Walls1")){
+        if (currentCell != null && wallTileMap.GetTile(currentCell) != null) {  
+            if (wallTileMap.GetTile(currentCell).name.Contains(DestroyableWallName)){
                 
                 TileBase tile = wallTileMap.GetTile(currentCell);
                 for (int i = 0; i < allWallTiles.Length; i++) {
