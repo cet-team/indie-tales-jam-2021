@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour {
     }
 
 	public void PLayGameOverSound() { audioSource.PlayOneShot(gameOverSound); }
-	public void PLayGameStartSound() { audioSource.PlayOneShot(gameStartSound); }
+	public void PLayGameStartSound() {audioSource.PlayOneShot(gameStartSound); }
 	public void PLayPlayerHit1Sound() { audioSource.PlayOneShot(playerHit1Sound); }
 	public void PlayPlayerHit2Sound() { audioSource.PlayOneShot(playerHit2Sound); }
 	public void PlayWallAlmostsDownSound() { audioSource.PlayOneShot(wallAlmostsDownSound); }

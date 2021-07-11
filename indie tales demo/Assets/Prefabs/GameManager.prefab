@@ -773,6 +773,7 @@ MonoBehaviour:
   wallAlmostsDownSound: {fileID: 8300000, guid: 2dc07abd409cb5d4a8f41d34bb174434, type: 3}
   wallDawn1Sound: {fileID: 8300000, guid: 79261ed519600ff4382d133a85339052, type: 3}
   wallDawn2Sound: {fileID: 8300000, guid: 83cbe39389c17a24a899b568b34960ea, type: 3}
+  songSound: {fileID: 8300000, guid: 00fdac1981e0f1449975f4a826368884, type: 3}
 --- !u!82 &1744405183389773068
 AudioSource:
   m_ObjectHideFlags: 0

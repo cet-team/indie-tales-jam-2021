@@ -136,7 +136,24 @@ public class PlayerController : MonoBehaviour {
                 break;
             case Weapons.sledgehammer:
                 currentAnimator.runtimeAnimatorController = Resources.Load(AnimatorSledgehammer) as RuntimeAnimatorController;
+                PlaySong();
                 break;
         }
     }
+
+    public void PlaySong() {
+        var audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
+    }
+
+    public void MuteSong() {
+        var audioSource = GetComponent<AudioSource>();
+        audioSource.mute = true;
+    }
+
+    public void UnmuteSong() {
+        var audioSource = GetComponent<AudioSource>();
+        audioSource.mute = false;
+    }
+
 }
