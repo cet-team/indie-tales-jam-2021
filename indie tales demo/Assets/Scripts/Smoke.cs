@@ -35,7 +35,7 @@ public class Smoke : MonoBehaviour {
     }
 
     IEnumerator CreateAfterASecond() {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.3f);
 
         if (!smokeTileMap.HasTile(originAsInt + Vector3Int.up) && !wallTileMap.HasTile(originAsInt + Vector3Int.up)) {
             Smoke childA = CreateChild(Vector3.up);
